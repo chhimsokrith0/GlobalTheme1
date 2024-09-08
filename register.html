@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Register - Global One Finance and Investment Corp</title>
+  <style>
+    body {
+      background-image: url('img/bg.jpg'); /* Replace with your image URL */
+      background-size: cover; /* Cover the entire background */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* No repeat of the image */
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <!-- Registration Form -->
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
+    <form id="registrationForm">
+      <!-- Phone Input -->
+      <div class="mb-4">
+        <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+        <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 rounded" placeholder="Enter your phone number" required>
+      </div>
+
+      <!-- Password Input -->
+      <div class="mb-4">
+        <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
+        <input type="password" id="password" name="password" class="w-full p-3 border border-gray-300 rounded" placeholder="Enter your password" required>
+      </div>
+
+      <!-- Confirm Password Input -->
+      <div class="mb-4">
+        <label for="confirmPassword" class="block text-gray-700 font-semibold mb-2">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="w-full p-3 border border-gray-300 rounded" placeholder="Confirm your password" required>
+      </div>
+
+      <!-- Note Input -->
+      <div class="mb-4">
+        <label for="note" class="block text-gray-700 font-semibold mb-2">Note</label>
+        <textarea id="note" name="note" rows="4" class="w-full p-3 border border-gray-300 rounded" placeholder="Any additional notes..."></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="w-full bg-green-500 text-white py-3 rounded font-semibold hover:bg-green-600 transition">Register</button>
+
+      <!-- Message -->
+      <p id="message" class="mt-4 text-red-500 text-center hidden">Passwords do not match. Please try again.</p>
+    </form>
+  </div>
+
+  <!-- JavaScript for Form Validation -->
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const message = document.getElementById('message');
+
+      // Check if passwords match
+      if (password !== confirmPassword) {
+        message.classList.remove('hidden'); // Show error message
+        return; // Stop submission
+      } else {
+        message.classList.add('hidden'); // Hide error message
+      }
+
+      // You can proceed with form submission, e.g., via AJAX or by removing the event.preventDefault()
+      alert('Registration successful!'); // For demonstration
+      this.reset(); // Reset the form
+    });
+  </script>
+
+</body>
+</html>
